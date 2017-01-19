@@ -1,6 +1,6 @@
 {
   "name": "angular-segment-tree",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Segment tree with angularjs",
   "main": "index.js",
   "scripts": {
@@ -9,8 +9,12 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Antério Vieira <anteriovieira@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/owen-it/angular-segment-tree.git"
+  },
   "devDependencies": {
     "babel-preset-es2015-rollup": "^3.0.0",
     "rollup": "^0.41.4",
