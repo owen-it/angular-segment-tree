@@ -1,0 +1,73 @@
+<style>
+    .st-nodes .st-node {
+        border-radius: 4px;
+        margin-bottom: 10px;
+    }
+
+    .st-nodes .st-node h4 {
+        border: 1px solid #eee;
+        border-left-width: 6px;
+        padding: 10px;
+        margin: 0;
+        cursor: pointer;
+    }
+    
+    .st-nodes .st-node h4.selected {
+        /*background: rgba(238, 238, 238, 0.26);*/
+        border-bottom: 1px solid #e5e5e5;
+        box-shadow: -1px 3px 2px 0px rgba(0, 0, 0, 0.08);
+        -webkit-box-shadow: -1px 3px 2px 0px rgba(0, 0, 0, 0.08);
+    }
+
+    .st-nodes .st-node-container h4 {
+        border-top: none;
+    }
+
+    .st-node .st-node-container {
+        margin-left: 5px;
+        margin-right: 3px;
+        display: none;
+    }
+    
+    .st-node .st-node-content {
+        border-left: 1px solid #eee;
+        border-right: 1px solid #eee;
+        border-bottom: 1px solid #eee;
+        padding: 10px;
+    }
+
+    .st-node.in > .st-node-container {
+        display: block;
+    }
+
+    .st-node .st-node-icon {
+        color: #808080;
+    }
+
+    .st-node .st-node-info {
+        border-left-color: #1b809e !important;
+    }
+</style>
+
+<div class="st-nodes">
+    <div class="st-node" ng-class="{in: node.selected}" ng-repeat="node in $ctrl.nodes">
+        <h4 class="st-node-info" ng-class="{selected: node.selected}" ng-click="$ctrl.selectNode(node)">
+            <i ng-if="node[$ctrl.nodeIcon]" class="{{ node[$ctrl.nodeIcon] }} st-node-icon"></i>
+            {{ ::node[$ctrl.nodeLabel] }}
+        </h4>
+        <div class="st-node-container">
+            <div class="st-node-content">
+                <p compile-html="node[$ctrl.nodeContent]"></p>
+
+            </div>
+            <segment-tree 
+                ng-if="node[$ctrl.nodeChildren].length"
+                nodes="node[$ctrl.nodeChildren]" 
+                node-label="{{ $ctrl.nodeLabel }}" 
+                node-content="{{ $ctrl.nodeContent }}"
+                node-icon="{{ $ctrl.nodeIcon }}"
+                node-children="{{ $ctrl.nodeChildren }}">
+            </segment-tree>
+        </div>
+    </div>
+</div>
