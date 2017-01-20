@@ -51,14 +51,14 @@
 
 <div class="st-nodes">
     <div class="st-node" ng-class="{in: node.selected}" ng-repeat="node in $ctrl.nodes">
-        <h4 class="st-node-info" ng-class="{selected: node.selected}" ng-click="$ctrl.selectNode(node)">
+        <h4 class="st-node-info" ng-class="{selected: node.selected}" ng-click="$ctrl.$selectNode(node)">
             <i ng-if="node[$ctrl.nodeIcon]" class="{{ node[$ctrl.nodeIcon] }} st-node-icon"></i>
             {{ ::node[$ctrl.nodeLabel] }}
         </h4>
         <div class="st-node-container">
             <div class="st-node-content">
-                <p compile-html="node[$ctrl.nodeContent]"></p>
-
+                <div compile-html="{{ node[$ctrl.nodeContent] }}"></div>
+                <div ng-if="$ctrl.nodeTemplateUrl" ng-include="$ctrl.nodeTemplateUrl"></div>
             </div>
             <segment-tree 
                 ng-if="node[$ctrl.nodeChildren].length"
@@ -66,7 +66,8 @@
                 node-label="{{ $ctrl.nodeLabel }}" 
                 node-content="{{ $ctrl.nodeContent }}"
                 node-icon="{{ $ctrl.nodeIcon }}"
-                node-children="{{ $ctrl.nodeChildren }}">
+                node-children="{{ $ctrl.nodeChildren }}"
+                node-template-url="{{ $ctrl.nodeTemplateUrl }}">
             </segment-tree>
         </div>
     </div>
