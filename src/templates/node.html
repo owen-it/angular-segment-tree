@@ -5,7 +5,10 @@
     }
 
     .st-nodes .st-node h4.st-label {
-        border: 1px solid #eee;
+        border-top: 1px solid #eee;
+        border-right: 1px solid #eee;
+        border-bottom: 1px solid #eee;
+        border-left-style: solid;
         border-left-width: 6px;
         padding: 10px;
         margin: 0;
@@ -45,13 +48,17 @@
     }
 
     .st-node .st-node-info {
-        border-left-color: #1b809e !important;
+        border-left-color: #1b809e;
+    }
+    
+    .st-node .st-node-success {
+        border-left-color: #4cae4c;
     }
 </style>
 
 <div class="st-nodes">
     <div class="st-node" ng-class="{in: node.selected}" ng-repeat="node in $ctrl.nodes">
-        <h4 class="st-node-info st-label" ng-class="{selected: node.selected}" ng-click="$ctrl.$selectNode(node)">
+        <h4 class="st-node-success st-label" ng-class="{selected: node.selected}" ng-click="$ctrl.$selectNode(node)">
             <i ng-if="node[$ctrl.nodeIcon]" class="{{ node[$ctrl.nodeIcon] }} st-node-icon"></i>
             {{ ::node[$ctrl.nodeLabel] }}
         </h4>
