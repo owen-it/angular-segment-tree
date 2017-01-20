@@ -4,7 +4,7 @@ var directive = ($compile) => {
         replace: true,
         link: ($scope, $element, $attrs) => {
             $element.html($compile(
-                $attrs.compileHtml
+                `<div>${$attrs.compileHtml}</div>`
             )($scope));
         }
     }
