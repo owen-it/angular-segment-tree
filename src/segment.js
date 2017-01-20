@@ -2,19 +2,17 @@ import _template from './templates/node.html';
 
 class SegmentCtrl
 {
-    constructor() {
-    }
-    
-    $onInit() {
-      
+    $onInit() 
+    {
         this.nodeLabel = this.nodeLabel || 'label';
         this.nodeContent = this.nodeContent || 'content';
         this.nodeIcon = this.nodeIcon || 'icon';
         this.nodeChildren = this.nodeChildren || 'children';
-        
+        this.nodeChildren = this.nodeChildren || 'children';
+        this.nodeTemplateUrl = this.nodeTemplateUrl || undefined;
     }
-    
-    selectNode(node){
+
+    $selectNode(node){
         this.nodes.map(( n ) => {
             n.selected = (node[this.nodeLabel] == n[this.nodeLabel]) && !node.selected;
         });
@@ -29,8 +27,10 @@ export default ['segmentTree', {
         nodeChildren: '@?',
         nodeContent: '@?',
         nodeIcon: '@?',
-        nodeLinks: '<?'   
+        nodeLinks: '<?',
+        nodeTemplateUrl: '@'
     },
     controller: SegmentCtrl,
-    template: _template
+    template: _template,
+    transclude: true
 }];
