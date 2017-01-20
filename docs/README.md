@@ -3,7 +3,7 @@
 ### Example
 
 ```javascript
-.controller('Docs', ['$scope', function($scope){
+.controller('DocsController', ['$scope', function($scope){
 
     $scope.nodes = [
         {
@@ -28,11 +28,11 @@
 }])
 ```
 
+```html
+<segment-tree nodes="nodes"><segment-tree>
+```
+
+
+
 ![](/assets/2017-01-20_08h19_23.png)
-
-
-
-
-
-
 
