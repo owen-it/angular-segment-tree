@@ -1,12 +1,11 @@
 var directive = ($compile) => {
     return {
         restrict: 'A',
-        scope: { compileHtml: '=' },
         replace: true,
-        link: ($scope, $element) => {
+        link: ($scope, $element, $attrs) => {
             $element.html($compile(
-                $scope.compileHtml
-            )($compile));
+                $attrs.compileHtml
+            )($scope));
         }
     }
 }
